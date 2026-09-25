@@ -15,15 +15,15 @@ CampusCue uses RevenueCat Android SDK `10.15.1` for:
 - checking the `CampusCue Plus` entitlement;
 - restoring purchases.
 
-The app expects an offering with entitlement identifier `CampusCue Plus`. Configure a monthly package such as `campuscue_plus_monthly` in RevenueCat's Test Store before recording the demo.
+The app uses the `CampusCue Plus` entitlement and the CampusCue Test Store offering. The RevenueCat project already contains monthly, yearly, and lifetime Test Store products bound to one entitlement.
 
-The public SDK key is supplied at build time and is not stored in the repository:
+The public Test Store SDK key is configured in the project `gradle.properties` so Android Studio can build the demo immediately. Public SDK keys are safe for client apps; never commit private RevenueCat secret keys.
+
+For a different key or project, override it at build time:
 
 ```powershell
 ./gradlew assembleDebug -PREVENUECAT_PUBLIC_SDK_KEY="your_public_sdk_key"
 ```
-
-Or put the property in a local `~/.gradle/gradle.properties` file. Never commit private RevenueCat secret keys.
 
 ## Build
 
@@ -53,7 +53,7 @@ The resulting debug APK is under `app/build/outputs/apk/debug/`.
 - [x] Open-source license included.
 - [ ] Add the final public repository URL to Devpost.
 - [ ] Record a public device demo under two minutes.
-- [ ] Configure the RevenueCat Test Store product and public SDK key.
+- [x] Configure the RevenueCat Test Store products, entitlement, and public SDK key.
 - [ ] Submit the new project through the RevenueCat Shipaton Devpost form.
 
 The Next Gen Award does not require a paid Google Play listing, but the project still needs a working device demonstration and a public repository.
